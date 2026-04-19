@@ -1,5 +1,6 @@
 import ClientEffects from '../components/ClientEffects'
 import OrderForm from '../components/OrderForm'
+import PayButton from '../components/PayButton'
 
 export default function Home() {
   return (
@@ -170,6 +171,17 @@ export default function Home() {
           </p>
           <OrderForm />
           <p className="form-note">Response within 2–3 business days &nbsp;·&nbsp; Brooklyn, NY</p>
+
+          <div className="deposit-divider">or pay your deposit now</div>
+
+          <div className="deposit-box">
+            <p>
+              Ready to secure your order? Pay the <strong>$375 deposit (50%)</strong> now
+              and Dana will reach out within 2–3 days to confirm details.
+              Balance of $375 is due upon completion.
+            </p>
+            <PayButton />
+          </div>
         </div>
       </section>
 

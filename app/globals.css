@@ -382,6 +382,101 @@ h2 {
   line-height: 1.6;
 }
 
+/* ── PAY BUTTON ── */
+.deposit-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  color: var(--tan);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.deposit-divider::before,
+.deposit-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--tan-light);
+}
+.deposit-box {
+  background: var(--warm-white);
+  border: 1px solid var(--tan-light);
+  padding: 2rem;
+  text-align: center;
+}
+.deposit-box p {
+  font-size: 0.82rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.deposit-box p strong {
+  color: var(--dark);
+  font-weight: 500;
+}
+.btn-pay {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-pay:hover { background: var(--dark); }
+.btn-pay:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── SUCCESS PAGE ── */
+.success-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  padding: 3rem;
+}
+.success-inner {
+  max-width: 520px;
+  text-align: center;
+}
+.success-inner h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.success-inner p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--mid);
+  margin-bottom: 1rem;
+}
+.success-sub {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tan) !important;
+  margin-bottom: 2.5rem !important;
+}
+.btn-back {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--dark);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-back:hover { background: var(--accent); }
+
 /* ── FOOTER ── */
 footer {
   background: var(--dark);
