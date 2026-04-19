@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function POST(request) {
-  const origin = request.headers.get('origin') ?? 'https://dashidar.vercel.app'
+  const origin = request.headers.get('origin') ?? 'https://dashidar.com'
 
   const body = [
     'mode=payment',
