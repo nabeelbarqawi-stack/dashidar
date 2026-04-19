@@ -1,5 +1,6 @@
 import ClientEffects from '../components/ClientEffects'
 import CheckoutEmbed from '../components/CheckoutEmbed'
+import ContactForm from '../components/ContactForm'
 
 export default function Home() {
   return (
@@ -237,20 +238,7 @@ export default function Home() {
           <span className="label">Contact</span>
           <h2>Get in touch.</h2>
           <p>Questions about the table, custom dimensions, or a wholesale inquiry? Dana reads every message.</p>
-          <div className="contact-links">
-            <a href="mailto:hello@dashidar.com" className="contact-link">
-              <span className="contact-link-label">Email</span>
-              hello@dashidar.com
-            </a>
-            <a href="https://danashihabeddin.myportfolio.com/home" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <span className="contact-link-label">Portfolio</span>
-              danashihabeddin.myportfolio.com
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <span className="contact-link-label">Instagram</span>
-              @dashidar
-            </a>
-          </div>
+          <ContactForm />
         </div>
       </section>
 
