@@ -12,10 +12,10 @@ export async function POST() {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'Dashidar Table — 50% Deposit',
-            description: 'Custom solid wood table, handcrafted in Brooklyn NY. Balance of $375 due upon completion.',
+            name: 'Dashidar Table',
+            description: 'Custom solid wood table, handcrafted in Brooklyn NY. Made to order — 6 to 8 weeks.',
           },
-          unit_amount: 37500,
+          unit_amount: 75000,
         },
         quantity: 1,
       },

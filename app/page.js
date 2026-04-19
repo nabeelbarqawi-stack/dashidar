@@ -176,9 +176,8 @@ export default function Home() {
 
           <div className="deposit-box">
             <p>
-              Ready to secure your order? Pay the <strong>$375 deposit (50%)</strong> now
-              and Dana will reach out within 2–3 days to confirm details.
-              Balance of $375 is due upon completion.
+              Ready to order? Pay <strong>$750</strong> upfront and Dana will reach out
+              within 2–3 days to confirm your details. Your table will be ready in 6–8 weeks.
             </p>
             <PayButton />
           </div>

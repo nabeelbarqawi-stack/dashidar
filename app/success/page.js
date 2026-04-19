@@ -5,7 +5,7 @@ export default function Success() {
         <span className="label">Order Confirmed</span>
         <h1>Thank you.</h1>
         <p>
-          Your $375 deposit has been received. Dana will be in touch within
+          Your payment of $750 has been received. Dana will be in touch within
           2–3 business days to confirm your order details and timeline.
         </p>
         <p className="success-sub">

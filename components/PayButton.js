@@ -17,7 +17,7 @@ export default function PayButton() {
 
   return (
     <button onClick={handleClick} disabled={loading} className="btn-pay">
-      {loading ? 'Redirecting…' : 'Pay $375 Deposit'}
+      {loading ? 'Redirecting…' : 'Buy Now — $750'}
     </button>
   )
 }
