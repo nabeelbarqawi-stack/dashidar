@@ -73,6 +73,14 @@ export default function Home() {
         </div>
       </div>
 
+      {/* PULL QUOTE 1 */}
+      <div className="pull-quote fade-up">
+        <blockquote>
+          "This table completely transformed our living room. The craftsmanship is unlike anything you'll find in a store."
+        </blockquote>
+        <cite>— Sarah M., New York</cite>
+      </div>
+
       {/* GALLERY */}
       <section id="gallery">
         <div className="gallery-header fade-up">
@@ -97,6 +105,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* PULL QUOTE 2 */}
+      <div className="pull-quote pull-quote--dark fade-up">
+        <blockquote>
+          "The modular design means it fit through my narrow Brooklyn doorway no problem. Five minutes to assemble, looks like sculpture."
+        </blockquote>
+        <cite>— James L., Brooklyn</cite>
+      </div>
 
       {/* PROCESS */}
       <section id="process">

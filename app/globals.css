@@ -526,6 +526,35 @@ h2 {
 }
 .btn-back:hover { background: var(--accent); }
 
+/* ── PULL QUOTES ── */
+.pull-quote {
+  padding: 5rem 3rem;
+  background: var(--cream);
+  text-align: center;
+}
+.pull-quote--dark {
+  background: var(--dark);
+}
+.pull-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--dark);
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+}
+.pull-quote--dark blockquote { color: var(--cream); }
+.pull-quote cite {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-style: normal;
+}
+.pull-quote--dark cite { color: var(--tan); }
+
 /* ── REVIEWS ── */
 #reviews { background: var(--warm-white); padding: 7rem 3rem; }
 .reviews-inner { max-width: 1200px; margin: 0 auto; }
