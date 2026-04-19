@@ -477,6 +477,23 @@ h2 {
 }
 .btn-back:hover { background: var(--accent); }
 
+/* ── STRIPE EMBED ── */
+.stripe-form { width: 100%; }
+.stripe-loading {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.stripe-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--tan-light);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
 /* ── FOOTER ── */
 footer {
   background: var(--dark);

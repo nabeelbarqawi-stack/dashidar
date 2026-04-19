@@ -1,0 +1,27 @@
+import { NextResponse } from 'next/server'
+
+export async function POST() {
+  const body = [
+    'amount=75000',
+    'currency=usd',
+    `description=${encodeURIComponent('Dashidar Table — custom solid wood, Brooklyn NY')}`,
+    'automatic_payment_methods[enabled]=true',
+  ].join('&')
+
+  const res = await fetch('https://api.stripe.com/v1/payment_intents', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body,
+  })
+
+  const intent = await res.json()
+
+  if (!res.ok) {
+    return NextResponse.json({ error: intent.error?.message }, { status: 500 })
+  }
+
+  return NextResponse.json({ clientSecret: intent.client_secret })
+}

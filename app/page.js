@@ -1,5 +1,5 @@
 import ClientEffects from '../components/ClientEffects'
-import PayButton from '../components/PayButton'
+import CheckoutEmbed from '../components/CheckoutEmbed'
 
 export default function Home() {
   return (
@@ -169,7 +169,7 @@ export default function Home() {
             Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
             ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
           </p>
-          <PayButton />
+          <CheckoutEmbed />
           <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
         </div>
       </section>
