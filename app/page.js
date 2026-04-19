@@ -1,5 +1,4 @@
 import ClientEffects from '../components/ClientEffects'
-import OrderForm from '../components/OrderForm'
 import PayButton from '../components/PayButton'
 
 export default function Home() {
@@ -167,20 +166,11 @@ export default function Home() {
           <span className="label">Order</span>
           <h2>Made <em>for you,</em><br />by hand.</h2>
           <p className="order-intro">
-            Each table is made to order in Brooklyn, New York. Get in touch to discuss dimensions, wood species, and finish options. Lead time is 6–8 weeks from deposit.
+            Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
+            ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
           </p>
-          <OrderForm />
-          <p className="form-note">Response within 2–3 business days &nbsp;·&nbsp; Brooklyn, NY</p>
-
-          <div className="deposit-divider">or pay your deposit now</div>
-
-          <div className="deposit-box">
-            <p>
-              Ready to order? Pay <strong>$750</strong> upfront and Dana will reach out
-              within 2–3 days to confirm your details. Your table will be ready in 6–8 weeks.
-            </p>
-            <PayButton />
-          </div>
+          <PayButton />
+          <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
         </div>
       </section>
 
