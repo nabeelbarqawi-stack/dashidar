@@ -16,7 +16,7 @@ export default function Home() {
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#order" className="nav-order">Order — $750</a>
+        <a href="#order" className="nav-order">Order</a>
       </nav>
 
       {/* HERO */}
@@ -27,7 +27,7 @@ export default function Home() {
           <h1>Where <em>craft</em><br />meets structure.</h1>
           <p>Custom wood tables — Brooklyn, New York</p>
           <div className="hero-ctas">
-            <a href="#order" className="hero-btn-primary">Order Now — $750</a>
+            <a href="#order" className="hero-btn-primary">Order Now</a>
             <a href="#gallery" className="hero-btn-secondary">See the work</a>
           </div>
         </div>
