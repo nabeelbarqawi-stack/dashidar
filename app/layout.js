@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${cormorant.variable} ${inter.variable}`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
