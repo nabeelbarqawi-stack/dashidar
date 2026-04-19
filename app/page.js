@@ -164,6 +164,10 @@ export default function Home() {
             Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
             ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
           </p>
+          <div className="stock-badge">
+            <span className="stock-dot" />
+            Only 11 slots remaining for 2025
+          </div>
           <CheckoutEmbed />
           <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
         </div>
