@@ -166,7 +166,7 @@ export default function Home() {
           </p>
           <div className="stock-badge">
             <span className="stock-dot" />
-            Only 11 slots remaining for 2025
+            Only 11 tables remaining
           </div>
           <CheckoutEmbed />
           <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
