@@ -5,7 +5,7 @@ export async function POST() {
     'amount=75000',
     'currency=usd',
     `description=${encodeURIComponent('Dashidar Table — custom solid wood, Brooklyn NY')}`,
-    'automatic_payment_methods[enabled]=true',
+    'payment_method_types[]=card',
   ].join('&')
 
   const res = await fetch('https://api.stripe.com/v1/payment_intents', {

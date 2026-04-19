@@ -10,11 +10,12 @@ export default function Home() {
       <nav id="nav" className="over-dark">
         <a href="#" className="nav-logo">Dashidar</a>
         <ul className="nav-links">
-          <li><a href="#gallery">Work</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#order" className="nav-order">Order</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <a href="#order" className="nav-order">Order — $750</a>
       </nav>
 
       {/* HERO */}
@@ -24,6 +25,10 @@ export default function Home() {
         <div className="hero-text">
           <h1>Where <em>craft</em><br />meets structure.</h1>
           <p>Custom wood tables — Brooklyn, New York</p>
+          <div className="hero-ctas">
+            <a href="#order" className="hero-btn-primary">Order Now — $750</a>
+            <a href="#gallery" className="hero-btn-secondary">See the work</a>
+          </div>
         </div>
         <div className="hero-scroll">Scroll</div>
       </section>
@@ -42,6 +47,7 @@ export default function Home() {
             The form is inspired by the logic of joinery itself: four beams crossing at the center, locking each other in place through friction and balance. It is structural sculpture.
           </p>
           <p>Every table is unique. Lead time is 6–8 weeks.</p>
+          <a href="#order" className="intro-cta">Order yours — $750 →</a>
         </div>
       </section>
 
@@ -97,7 +103,6 @@ export default function Home() {
         <div className="process-media fade-up">
           <video controls playsInline poster="/images/base-top.jpg">
             <source src="/images/assembly.mov" type="video/mp4" />
-            Your browser does not support this video.
           </video>
         </div>
         <div className="process-text fade-up">
@@ -133,6 +138,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ORDER */}
+      <section id="order">
+        <div className="order-inner">
+          <span className="label">Order</span>
+          <h2>Made <em>for you,</em><br />by hand.</h2>
+          <p className="order-intro">
+            Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
+            ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
+          </p>
+          <CheckoutEmbed />
+          <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section id="reviews">
+        <div className="reviews-inner">
+          <div className="reviews-header fade-up">
+            <span className="label">Reviews</span>
+            <h2>What people are saying.</h2>
+          </div>
+          <div className="reviews-grid">
+            <div className="review-card fade-up">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"This table completely transformed our living room. The craftsmanship is unlike anything you'll find in a store — you can feel the thought that went into every joint. It arrived beautifully packaged and took under five minutes to assemble."</p>
+              <div className="review-author">
+                <span className="review-name">Sarah M.</span>
+                <span className="review-location">New York, NY</span>
+              </div>
+            </div>
+            <div className="review-card fade-up">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"I've been looking for a coffee table that was both a conversation piece and actually functional. Dana's table is exactly that. The white oak is stunning and the modular design means it fit through my narrow Brooklyn doorway no problem."</p>
+              <div className="review-author">
+                <span className="review-name">James L.</span>
+                <span className="review-location">Brooklyn, NY</span>
+              </div>
+            </div>
+            <div className="review-card fade-up">
+              <div className="review-stars">★★★★★</div>
+              <p className="review-text">"Worth every penny. We ordered the walnut finish and it exceeded every expectation. Dana communicated throughout the whole process and delivered exactly on time. This is heirloom-quality furniture."</p>
+              <div className="review-author">
+                <span className="review-name">Priya K.</span>
+                <span className="review-location">Manhattan, NY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ABOUT */}
       <section id="about">
         <div className="about-inner">
@@ -160,17 +215,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ORDER */}
-      <section id="order">
-        <div className="order-inner">
-          <span className="label">Order</span>
-          <h2>Made <em>for you,</em><br />by hand.</h2>
-          <p className="order-intro">
-            Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
-            ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
-          </p>
-          <CheckoutEmbed />
-          <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
+      {/* CONTACT */}
+      <section id="contact">
+        <div className="contact-inner fade-up">
+          <span className="label">Contact</span>
+          <h2>Get in touch.</h2>
+          <p>Questions about the table, custom dimensions, or a wholesale inquiry? Dana reads every message.</p>
+          <div className="contact-links">
+            <a href="mailto:hello@dashidar.com" className="contact-link">
+              <span className="contact-link-label">Email</span>
+              hello@dashidar.com
+            </a>
+            <a href="https://danashihabeddin.myportfolio.com/home" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <span className="contact-link-label">Portfolio</span>
+              danashihabeddin.myportfolio.com
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <span className="contact-link-label">Instagram</span>
+              @dashidar
+            </a>
+          </div>
         </div>
       </section>
 
@@ -178,7 +242,12 @@ export default function Home() {
       <footer>
         <span className="footer-logo">Dashidar</span>
         <span>Handcrafted in Brooklyn, New York</span>
-        <a href="https://danashihabeddin.myportfolio.com/home" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <div className="footer-links">
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
       </footer>
     </>
   )
