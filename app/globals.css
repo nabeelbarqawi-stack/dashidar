@@ -616,6 +616,14 @@ h2 {
 /* ── FOOTER LINKS ── */
 .footer-links { display: flex; gap: 2rem; }
 
+/* Hide Stripe test-mode developer toolbar */
+[id*="stripe-dev"],
+[class*="StripeDevTools"],
+[data-testid*="dev-tools"],
+.__privateStripeDevToolsButtonRoot {
+  display: none !important;
+}
+
 /* ── STRIPE EMBED ── */
 .stripe-form { width: 100%; }
 .stripe-loading {

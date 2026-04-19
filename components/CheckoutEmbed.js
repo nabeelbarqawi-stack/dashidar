@@ -5,6 +5,28 @@ import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
+function useHideStripeDevTools() {
+  useEffect(() => {
+    const hide = () => {
+      document.querySelectorAll('iframe').forEach(el => {
+        if (el.getAttribute('name')?.includes('__privateStripeMetricsController') ||
+            el.src?.includes('stripejs-inner') ||
+            el.title?.toLowerCase().includes('dev')) {
+          el.closest('div')?.style && (el.closest('div').style.display = 'none')
+        }
+      })
+      // target the sandbox floating button wrapper
+      document.querySelectorAll('[id*="stripe-dev"], [class*="StripeDevTools"], [data-testid*="dev-tools"]').forEach(el => {
+        el.style.display = 'none'
+      })
+    }
+    const observer = new MutationObserver(hide)
+    observer.observe(document.body, { childList: true, subtree: true })
+    hide()
+    return () => observer.disconnect()
+  }, [])
+}
+
 function PaymentForm() {
   const stripe = useStripe()
   const elements = useElements()
@@ -43,6 +65,7 @@ function PaymentForm() {
 }
 
 export default function CheckoutEmbed() {
+  useHideStripeDevTools()
   const [clientSecret, setClientSecret] = useState(null)
   const [error, setError] = useState(null)
 
