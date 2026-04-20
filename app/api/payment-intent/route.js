@@ -20,7 +20,8 @@ export async function POST() {
   const intent = await res.json()
 
   if (!res.ok) {
-    return NextResponse.json({ error: intent.error?.message }, { status: 500 })
+    console.error('Stripe payment intent error:', intent.error)
+    return NextResponse.json({ error: 'Unable to initialise payment. Please try again.' }, { status: 500 })
   }
 
   return NextResponse.json({ clientSecret: intent.client_secret })

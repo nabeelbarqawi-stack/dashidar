@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
 
+const ALLOWED_ORIGINS = ['https://dashidar.com', 'https://www.dashidar.com', 'https://dashidar.vercel.app']
+
 export async function POST(request) {
-  const origin = request.headers.get('origin') ?? 'https://dashidar.com'
+  const requestOrigin = request.headers.get('origin')
+  const origin = ALLOWED_ORIGINS.includes(requestOrigin) ? requestOrigin : 'https://dashidar.com'
 
   const body = [
     'mode=payment',
@@ -27,7 +30,8 @@ export async function POST(request) {
   const session = await res.json()
 
   if (!res.ok) {
-    return NextResponse.json({ error: session.error?.message }, { status: 500 })
+    console.error('Stripe checkout error:', session.error)
+    return NextResponse.json({ error: 'Unable to create checkout session. Please try again.' }, { status: 500 })
   }
 
   return NextResponse.json({ url: session.url })
