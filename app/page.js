@@ -202,10 +202,6 @@ export default function Home() {
               <li>Custom dimensions available</li>
               <li>Each table is one of a kind</li>
             </ul>
-            <div className="stock-badge">
-              <span className="stock-dot" />
-              Only 11 tables remaining this season
-            </div>
             <div className="order-testimonial">
               <div className="order-testimonial-stars">★★★★★</div>
               <p className="order-testimonial-text">
