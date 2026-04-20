@@ -196,6 +196,7 @@ nav.over-dark:not(.scrolled) .nav-order { background: rgba(255,255,255,0.15); co
   object-fit: cover;
   object-position: center 60%;
   filter: brightness(1.05) saturate(1.2) sepia(0.18);
+  pointer-events: none;
 }
 .hero-overlay {
   position: absolute;
@@ -214,6 +215,7 @@ nav.over-dark:not(.scrolled) .nav-order { background: rgba(255,255,255,0.15); co
   left: 3rem;
   color: #fff;
   max-width: 600px;
+  pointer-events: auto;
 }
 .hero-eyebrow {
   font-size: 0.68rem;
