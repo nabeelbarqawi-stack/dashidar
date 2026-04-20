@@ -7,6 +7,15 @@ export default function Home() {
     <>
       <ClientEffects />
 
+      {/* STICKY BAR */}
+      <div id="sticky-bar">
+        <div className="sticky-bar-left">
+          <span className="sticky-bar-name">The Dashidar Table</span>
+          <span className="sticky-bar-price">$750</span>
+        </div>
+        <a href="#order" className="sticky-bar-btn">Order Now</a>
+      </div>
+
       {/* NAV */}
       <nav id="nav" className="over-dark">
         <a href="#" className="nav-logo">Dashidar</a>
@@ -16,23 +25,52 @@ export default function Home() {
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#order" className="nav-order">Order</a>
+        <a href="#order" className="nav-order">Order — $750</a>
       </nav>
 
       {/* HERO */}
       <section id="hero">
-        <img src="/images/table-hero.jpg" alt="Dashidar table — solid wood base with glass top" />
+        <img
+          src="/images/table-hero.jpg"
+          alt="Dashidar table — custom solid wood coffee table, Brooklyn NY"
+          fetchpriority="high"
+        />
         <div className="hero-overlay" />
         <div className="hero-text">
+          <p className="hero-eyebrow">Custom Wood Table · Brooklyn, NY</p>
           <h1>Where <em>craft</em><br />meets structure.</h1>
-          <p>Custom wood tables — Brooklyn, New York</p>
           <div className="hero-ctas">
-            <a href="#order" className="hero-btn-primary">Order Now</a>
+            <a href="#order" className="hero-btn-primary">Order Now — $750</a>
             <a href="#gallery" className="hero-btn-secondary">See the work</a>
           </div>
         </div>
         <div className="hero-scroll">Scroll</div>
       </section>
+
+      {/* TRUST BAR */}
+      <div id="trust-bar">
+        <div className="trust-bar-inner">
+          <div className="trust-item">
+            <span className="trust-icon">✦</span>
+            <span>Solid wood — no MDF, no veneers</span>
+          </div>
+          <div className="trust-sep" />
+          <div className="trust-item">
+            <span className="trust-icon">✦</span>
+            <span>Handmade in Brooklyn, NY</span>
+          </div>
+          <div className="trust-sep" />
+          <div className="trust-item">
+            <span className="trust-icon">✦</span>
+            <span>Tool-free assembly</span>
+          </div>
+          <div className="trust-sep" />
+          <div className="trust-item">
+            <span className="trust-icon">✦</span>
+            <span>Made to order — 6–8 weeks</span>
+          </div>
+        </div>
+      </div>
 
       {/* INTRO */}
       <section id="intro">
@@ -42,12 +80,11 @@ export default function Home() {
         </div>
         <div className="intro-text fade-up">
           <p>
-            The Dashidar table begins as a sketch and ends as an heirloom. Each piece is made to order in Brooklyn, New York — hand-finished from solid wood with an interlocking base that assembles and disassembles without a single screw or tool.
+            The Dashidar table begins as a sketch and ends as an heirloom. Each piece is made to order in Brooklyn — hand-finished from solid wood with an interlocking base that assembles and disassembles without a single screw or tool.
           </p>
           <p>
-            The form is inspired by the logic of joinery itself: four beams crossing at the center, locking each other in place through friction and balance. It is structural sculpture.
+            Available in white oak, walnut, and maple. Custom dimensions on request. Lead time is 6–8 weeks.
           </p>
-          <p>Every table is unique. Lead time is 6–8 weeks.</p>
           <a href="#order" className="intro-cta">Order yours — $750 →</a>
         </div>
       </section>
@@ -69,17 +106,9 @@ export default function Home() {
           </div>
           <div className="spec-item fade-up">
             <div className="spec-value">6–8</div>
-            <div className="spec-label">Weeks to order</div>
+            <div className="spec-label">Weeks lead time</div>
           </div>
         </div>
-      </div>
-
-      {/* PULL QUOTE 1 */}
-      <div className="pull-quote fade-up">
-        <blockquote>
-          "This table completely transformed our living room. The craftsmanship is unlike anything you'll find in a store."
-        </blockquote>
-        <cite>— Sarah M., New York</cite>
       </div>
 
       {/* GALLERY */}
@@ -90,30 +119,51 @@ export default function Home() {
         </div>
         <div className="gallery-grid">
           <div className="gallery-item g1 fade-up">
-            <img src="/images/table-hero.jpg" alt="Dashidar table with glass top in living room" />
+            <img src="/images/table-hero.jpg" alt="Dashidar table with glass top" loading="lazy" />
           </div>
           <div className="gallery-item g2 fade-up">
-            <img src="/images/joint-dark.jpg" alt="Interlocking walnut wood joint detail" />
+            <img src="/images/joint-dark.jpg" alt="Interlocking walnut wood joint detail" loading="lazy" />
           </div>
           <div className="gallery-item g3 fade-up">
-            <img src="/images/joint-light.jpg" alt="White oak joint close-up detail" />
+            <img src="/images/joint-light.jpg" alt="White oak joint close-up" loading="lazy" />
           </div>
           <div className="gallery-item g4 fade-up">
-            <img src="/images/base-top.jpg" alt="Top view of the interlocking wood base" />
+            <img src="/images/base-top.jpg" alt="Top view of the interlocking base" loading="lazy" />
           </div>
           <div className="gallery-item g5 fade-up">
-            <img src="/images/bases-stacked.jpg" alt="Multiple table bases assembled" />
+            <img src="/images/bases-stacked.jpg" alt="Multiple table bases assembled" loading="lazy" />
           </div>
         </div>
       </section>
 
-      {/* PULL QUOTE 2 */}
+      {/* PULL QUOTE */}
       <div className="pull-quote pull-quote--dark fade-up">
         <blockquote>
-          "The modular design means it fit through my narrow Brooklyn doorway no problem. Five minutes to assemble, looks like sculpture."
+          "Five minutes to assemble — it looks like sculpture. The modular design meant it fit through my narrow Brooklyn doorway with no problem."
         </blockquote>
-        <cite>— James L., Brooklyn</cite>
+        <cite>— James L., Brooklyn NY</cite>
       </div>
+
+      {/* DRAWING / DETAILS */}
+      <section id="drawing">
+        <div className="drawing-inner">
+          <div className="fade-up">
+            <img src="/images/drawing.jpg" alt="Technical exploded drawing of the table assembly" loading="lazy" />
+          </div>
+          <div className="drawing-text fade-up">
+            <span className="label">Details</span>
+            <h2>Engineered<br />to last.</h2>
+            <ul className="feature-list">
+              <li>Solid wood construction throughout — no MDF, no veneers</li>
+              <li>Modular interlocking base — assembles tool-free in minutes</li>
+              <li>Glass top available in custom dimensions</li>
+              <li>Available in white oak, walnut, and maple</li>
+              <li>Custom dimensions and finishes on request</li>
+              <li>Made to order in Brooklyn, New York — 6 to 8 weeks</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* PROCESS */}
       <section id="process">
@@ -134,42 +184,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DRAWING */}
-      <section id="drawing">
-        <div className="drawing-inner">
-          <div className="fade-up">
-            <img src="/images/drawing.jpg" alt="Technical exploded drawing of the table assembly" />
-          </div>
-          <div className="drawing-text fade-up">
-            <span className="label">Details</span>
-            <h2>Engineered<br />to last.</h2>
-            <ul className="feature-list">
-              <li>Solid wood construction throughout — no MDF, no veneers</li>
-              <li>Modular interlocking base — assembles tool-free in minutes</li>
-              <li>Glass top available in custom dimensions</li>
-              <li>Available in white oak, walnut, and maple</li>
-              <li>Custom dimensions and finishes on request</li>
-              <li>Made to order in Brooklyn, New York — 6 to 8 weeks</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* ORDER */}
       <section id="order">
         <div className="order-inner">
-          <span className="label">Order</span>
-          <h2>Made <em>for you,</em><br />by hand.</h2>
-          <p className="order-intro">
-            Each table is made to order in Brooklyn, New York — solid wood, handcrafted,
-            ready in 6–8 weeks. Dana will reach out within 2–3 days to confirm your details.
-          </p>
-          <div className="stock-badge">
-            <span className="stock-dot" />
-            Only 11 tables remaining
+          <div className="order-details fade-up">
+            <span className="label">Reserve Yours</span>
+            <h2>Made <em>for you,</em><br />by hand.</h2>
+            <div className="order-price">$750</div>
+            <p className="order-tagline">
+              Solid wood. Handcrafted in Brooklyn. Yours in 6–8 weeks.
+              Dana confirms your details within 2–3 business days.
+            </p>
+            <ul className="order-features">
+              <li>White oak, walnut, or maple — your choice</li>
+              <li>Tool-free interlocking base</li>
+              <li>Glass top available on request</li>
+              <li>Custom dimensions available</li>
+              <li>Each table is one of a kind</li>
+            </ul>
+            <div className="stock-badge">
+              <span className="stock-dot" />
+              Only 11 tables remaining this season
+            </div>
+            <div className="order-testimonial">
+              <div className="order-testimonial-stars">★★★★★</div>
+              <p className="order-testimonial-text">
+                "Worth every penny. We ordered the walnut finish and it exceeded every expectation. This is heirloom-quality furniture."
+              </p>
+              <span className="order-testimonial-cite">— Priya K., Manhattan NY</span>
+            </div>
           </div>
-          <CheckoutEmbed />
-          <p className="form-note">Brooklyn, NY &nbsp;·&nbsp; 6–8 weeks &nbsp;·&nbsp; Apple Pay &amp; all major cards</p>
+
+          <div className="order-checkout fade-up">
+            <div className="checkout-box">
+              <CheckoutEmbed />
+              <div className="trust-badges">
+                <span>🔒 Secure payment</span>
+                <span>·</span>
+                <span>Stripe encrypted</span>
+                <span>·</span>
+                <span>Apple Pay accepted</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -240,8 +297,8 @@ export default function Home() {
       <section id="contact">
         <div className="contact-inner fade-up">
           <span className="label">Contact</span>
-          <h2>Get in touch.</h2>
-          <p>Questions about the table, custom dimensions, or a wholesale inquiry? Dana reads every message.</p>
+          <h2>Questions?</h2>
+          <p>Custom dimensions, wood selection, or wholesale inquiries — Dana reads every message personally.</p>
           <ContactForm />
         </div>
       </section>
