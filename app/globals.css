@@ -140,10 +140,15 @@ nav.over-dark.scrolled .nav-logo,
 nav.over-dark.scrolled .nav-links a {
   color: var(--dark);
 }
+.nav-left {
+  flex: 1;
+}
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 2.5rem;
   list-style: none;

@@ -21,14 +21,18 @@ export default function Home() {
 
       {/* NAV */}
       <nav id="nav" className="over-dark" aria-label="Main navigation">
-        <a href="#" className="nav-logo" aria-label="Dashidar — home">Dashidar</a>
+        <div className="nav-left">
+          <a href="#" className="nav-logo" aria-label="Dashidar — home">Dashidar</a>
+        </div>
         <ul className="nav-links" role="list">
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#order" className="nav-order">Order — $750</a>
+        <div className="nav-right">
+          <a href="#order" className="nav-order">Order — $750</a>
+        </div>
       </nav>
 
       {/* HERO */}
