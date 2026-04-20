@@ -110,9 +110,8 @@ body {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
   background: transparent;
@@ -143,10 +142,13 @@ nav.over-dark.scrolled .nav-links a {
 }
 .nav-left {
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 .nav-right {
   flex: 1;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 .nav-links {
@@ -161,6 +163,9 @@ nav.over-dark.scrolled .nav-links a {
   text-decoration: none;
   color: var(--dark);
   transition: opacity 0.2s;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }
 .nav-links a:hover { opacity: 0.5; }
 .nav-order {
@@ -195,6 +200,7 @@ nav.over-dark:not(.scrolled) .nav-order { background: rgba(255,255,255,0.15); co
 .hero-overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(
     to bottom,
     rgba(139, 104, 69, 0.12) 0%,
