@@ -22,6 +22,13 @@ export const metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  themeColor: '#1C1510',
+  colorScheme: 'light',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 }
 
 export default function RootLayout({ children }) {

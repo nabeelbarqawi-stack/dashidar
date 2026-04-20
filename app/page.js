@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import ClientEffects from '../components/ClientEffects'
 import CheckoutEmbed from '../components/CheckoutEmbed'
 import ContactForm from '../components/ContactForm'
@@ -37,10 +38,13 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero" aria-label="Hero">
-        <img
+        <Image
           src="/images/table-hero.jpg"
           alt="Dashidar solid wood coffee table with glass top, handcrafted in Brooklyn NY"
-          fetchpriority="high"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center 60%', filter: 'brightness(1.05) saturate(1.2) sepia(0.18)' }}
         />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-text">
@@ -55,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* TRUST BAR */}
-      <div id="trust-bar" id="main-content" aria-label="Product highlights" role="region">
+      <div id="trust-bar" aria-label="Product highlights" role="region">
         <div className="trust-bar-inner">
           <div className="trust-item">
             <span className="trust-icon" aria-hidden="true">✦</span>
@@ -126,19 +130,19 @@ export default function Home() {
         </div>
         <div className="gallery-grid" role="list">
           <div className="gallery-item g1 fade-up" role="listitem">
-            <img src="/images/table-hero.jpg" alt="Dashidar table with glass top in a living room setting" loading="lazy" />
+            <Image src="/images/table-hero.jpg" alt="Dashidar table with glass top in a living room setting" fill sizes="(max-width: 768px) 50vw, 57vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className="gallery-item g2 fade-up" role="listitem">
-            <img src="/images/joint-dark.jpg" alt="Close-up of the interlocking walnut wood joint" loading="lazy" />
+            <Image src="/images/joint-dark.jpg" alt="Close-up of the interlocking walnut wood joint" fill sizes="(max-width: 768px) 50vw, 41vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className="gallery-item g3 fade-up" role="listitem">
-            <img src="/images/joint-light.jpg" alt="White oak joint close-up showing precision craftsmanship" loading="lazy" />
+            <Image src="/images/joint-light.jpg" alt="White oak joint close-up showing precision craftsmanship" fill sizes="(max-width: 768px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className="gallery-item g4 fade-up" role="listitem">
-            <img src="/images/base-top.jpg" alt="Top-down view of the interlocking wood base structure" loading="lazy" />
+            <Image src="/images/base-top.jpg" alt="Top-down view of the interlocking wood base structure" fill sizes="(max-width: 768px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className="gallery-item g5 fade-up" role="listitem">
-            <img src="/images/bases-stacked.jpg" alt="Multiple table bases stacked and assembled" loading="lazy" />
+            <Image src="/images/bases-stacked.jpg" alt="Multiple table bases stacked and assembled" fill sizes="(max-width: 768px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
           </div>
         </div>
       </section>
@@ -155,7 +159,9 @@ export default function Home() {
       <section id="drawing" aria-labelledby="drawing-heading">
         <div className="drawing-inner">
           <div className="fade-up">
-            <img src="/images/drawing.jpg" alt="Technical exploded-view drawing showing the table assembly and component layout" loading="lazy" />
+            <div className="drawing-img-wrap">
+              <Image src="/images/drawing.jpg" alt="Technical exploded-view drawing showing the table assembly and component layout" fill sizes="(max-width: 768px) 90vw, 420px" style={{ objectFit: 'contain' }} />
+            </div>
           </div>
           <div className="drawing-text fade-up">
             <span className="label">Details</span>
@@ -178,6 +184,7 @@ export default function Home() {
           <video
             controls
             playsInline
+            preload="none"
             poster="/images/base-top.jpg"
             aria-label="Video showing the table assembly process — four wooden beams interlocking without tools"
           >
