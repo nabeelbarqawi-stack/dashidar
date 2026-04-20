@@ -185,7 +185,7 @@ export default function Home() {
             controls
             playsInline
             preload="none"
-            poster="/images/base-top.jpg"
+            poster="/images/base-top-poster.jpg"
             aria-label="Video showing the table assembly process — four wooden beams interlocking without tools"
           >
             <source src="/images/assembly.mov" type="video/mp4" />
