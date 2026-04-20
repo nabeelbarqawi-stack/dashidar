@@ -1,30 +1,14 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-
-function useHideStripeDevTools() {
-  useEffect(() => {
-    const hide = () => {
-      document.querySelectorAll('iframe').forEach(el => {
-        if (el.getAttribute('name')?.includes('__privateStripeMetricsController') ||
-            el.src?.includes('stripejs-inner') ||
-            el.title?.toLowerCase().includes('dev')) {
-          el.closest('div')?.style && (el.closest('div').style.display = 'none')
-        }
-      })
-      // target the sandbox floating button wrapper
-      document.querySelectorAll('[id*="stripe-dev"], [class*="StripeDevTools"], [data-testid*="dev-tools"]').forEach(el => {
-        el.style.display = 'none'
-      })
-    }
-    const observer = new MutationObserver(hide)
-    observer.observe(document.body, { childList: true, subtree: true })
-    hide()
-    return () => observer.disconnect()
-  }, [])
+let stripePromise = null
+function getStripe() {
+  if (!stripePromise) {
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  }
+  return stripePromise
 }
 
 function PaymentForm() {
@@ -54,10 +38,25 @@ function PaymentForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="stripe-form">
-      <PaymentElement options={{ layout: 'tabs' }} />
-      {error && <p className="form-error" style={{ marginTop: '0.75rem' }}>{error}</p>}
-      <button type="submit" disabled={loading || !stripe} className="btn-pay" style={{ marginTop: '1.5rem' }}>
+    <form onSubmit={handleSubmit} className="stripe-form" aria-label="Payment form">
+      <PaymentElement
+        options={{
+          layout: 'tabs',
+          paymentMethodOrder: ['card'],
+          wallets: { applePay: 'auto', googlePay: 'never' },
+        }}
+      />
+      {error && (
+        <p className="form-error" style={{ marginTop: '0.75rem' }} role="alert">
+          {error}
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={loading || !stripe}
+        className="btn-pay"
+        aria-label={loading ? 'Processing payment…' : 'Pay $750'}
+      >
         {loading ? 'Processing…' : 'Pay $750'}
       </button>
     </form>
@@ -65,11 +64,30 @@ function PaymentForm() {
 }
 
 export default function CheckoutEmbed() {
-  useHideStripeDevTools()
   const [clientSecret, setClientSecret] = useState(null)
   const [error, setError] = useState(null)
+  const [triggered, setTriggered] = useState(false)
+  const containerRef = useRef(null)
 
   useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTriggered(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '400px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!triggered) return
     fetch('/api/payment-intent', { method: 'POST' })
       .then(r => r.json())
       .then(d => {
@@ -77,65 +95,67 @@ export default function CheckoutEmbed() {
         else setError('Could not load checkout. Please refresh.')
       })
       .catch(() => setError('Could not load checkout. Please refresh.'))
-  }, [])
+  }, [triggered])
 
-  if (error) return <p className="form-error" style={{ textAlign: 'center' }}>{error}</p>
+  if (error) {
+    return (
+      <p className="form-error" style={{ textAlign: 'center' }} role="alert">
+        {error}
+      </p>
+    )
+  }
 
   if (!clientSecret) {
     return (
-      <div className="stripe-loading">
-        <div className="stripe-spinner" />
+      <div ref={containerRef} className="stripe-loading" aria-label="Loading payment form" role="status">
+        <div className="stripe-spinner" aria-hidden="true" />
       </div>
     )
   }
 
   return (
-    <Elements
-      stripe={stripePromise}
-      options={{
-        clientSecret,
-        appearance: {
-          theme: 'flat',
-          variables: {
-            colorPrimary: '#8B6845',
-            colorBackground: '#FDFAF7',
-            colorText: '#1C1510',
-            colorDanger: '#c0392b',
-            fontFamily: 'Inter, sans-serif',
-            borderRadius: '0px',
-            fontSizeBase: '14px',
-          },
-          rules: {
-            '.Input': {
-              border: '1px solid #C9B99F',
-              padding: '12px',
-              boxShadow: 'none',
+    <div ref={containerRef}>
+      <Elements
+        stripe={getStripe()}
+        options={{
+          clientSecret,
+          appearance: {
+            theme: 'flat',
+            variables: {
+              colorPrimary: '#8B6845',
+              colorBackground: '#F6F1EC',
+              colorText: '#1C1510',
+              colorDanger: '#c0392b',
+              fontFamily: 'Inter, sans-serif',
+              borderRadius: '0px',
+              fontSizeBase: '14px',
             },
-            '.Input:focus': {
-              border: '1px solid #8B6845',
-              boxShadow: 'none',
-              outline: 'none',
-            },
-            '.Label': {
-              fontSize: '11px',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#5C4A38',
-              marginBottom: '6px',
-            },
-            '.Tab': {
-              border: '1px solid #C9B99F',
-              boxShadow: 'none',
-            },
-            '.Tab--selected': {
-              border: '1px solid #8B6845',
-              boxShadow: 'none',
+            rules: {
+              '.Input': {
+                border: '1px solid #C9B99F',
+                padding: '12px',
+                boxShadow: 'none',
+              },
+              '.Input:focus': {
+                border: '1px solid #8B6845',
+                boxShadow: 'none',
+                outline: 'none',
+              },
+              '.Label': {
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: '#5C4A38',
+                marginBottom: '6px',
+              },
+              '.Tab': { border: '1px solid #C9B99F', boxShadow: 'none' },
+              '.Tab--selected': { border: '1px solid #8B6845', boxShadow: 'none' },
             },
           },
-        },
-      }}
-    >
-      <PaymentForm />
-    </Elements>
+        }}
+      >
+        <PaymentForm />
+      </Elements>
+    </div>
   )
 }

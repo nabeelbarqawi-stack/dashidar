@@ -7,19 +7,22 @@ export default function Home() {
     <>
       <ClientEffects />
 
+      {/* SKIP NAV */}
+      <a href="#main-content" className="skip-nav">Skip to main content</a>
+
       {/* STICKY BAR */}
-      <div id="sticky-bar">
+      <div id="sticky-bar" role="region" aria-label="Quick purchase">
         <div className="sticky-bar-left">
           <span className="sticky-bar-name">The Dashidar Table</span>
-          <span className="sticky-bar-price">$750</span>
+          <span className="sticky-bar-price" aria-label="Price: $750">$750</span>
         </div>
         <a href="#order" className="sticky-bar-btn">Order Now</a>
       </div>
 
       {/* NAV */}
-      <nav id="nav" className="over-dark">
-        <a href="#" className="nav-logo">Dashidar</a>
-        <ul className="nav-links">
+      <nav id="nav" className="over-dark" aria-label="Main navigation">
+        <a href="#" className="nav-logo" aria-label="Dashidar — home">Dashidar</a>
+        <ul className="nav-links" role="list">
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#reviews">Reviews</a></li>
@@ -29,13 +32,13 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section id="hero">
+      <section id="hero" aria-label="Hero">
         <img
           src="/images/table-hero.jpg"
-          alt="Dashidar table — custom solid wood coffee table, Brooklyn NY"
+          alt="Dashidar solid wood coffee table with glass top, handcrafted in Brooklyn NY"
           fetchpriority="high"
         />
-        <div className="hero-overlay" />
+        <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-text">
           <p className="hero-eyebrow">Custom Wood Table · Brooklyn, NY</p>
           <h1>Where <em>craft</em><br />meets structure.</h1>
@@ -44,39 +47,39 @@ export default function Home() {
             <a href="#gallery" className="hero-btn-secondary">See the work</a>
           </div>
         </div>
-        <div className="hero-scroll">Scroll</div>
+        <div className="hero-scroll" aria-hidden="true">Scroll</div>
       </section>
 
       {/* TRUST BAR */}
-      <div id="trust-bar">
+      <div id="trust-bar" id="main-content" aria-label="Product highlights" role="region">
         <div className="trust-bar-inner">
           <div className="trust-item">
-            <span className="trust-icon">✦</span>
+            <span className="trust-icon" aria-hidden="true">✦</span>
             <span>Solid wood — no MDF, no veneers</span>
           </div>
-          <div className="trust-sep" />
+          <div className="trust-sep" aria-hidden="true" />
           <div className="trust-item">
-            <span className="trust-icon">✦</span>
+            <span className="trust-icon" aria-hidden="true">✦</span>
             <span>Handmade in Brooklyn, NY</span>
           </div>
-          <div className="trust-sep" />
+          <div className="trust-sep" aria-hidden="true" />
           <div className="trust-item">
-            <span className="trust-icon">✦</span>
+            <span className="trust-icon" aria-hidden="true">✦</span>
             <span>Tool-free assembly</span>
           </div>
-          <div className="trust-sep" />
+          <div className="trust-sep" aria-hidden="true" />
           <div className="trust-item">
-            <span className="trust-icon">✦</span>
+            <span className="trust-icon" aria-hidden="true">✦</span>
             <span>Made to order — 6–8 weeks</span>
           </div>
         </div>
       </div>
 
       {/* INTRO */}
-      <section id="intro">
+      <section id="intro" aria-labelledby="intro-heading">
         <div className="fade-up">
           <span className="label">The Piece</span>
-          <h2>Solid wood.<br /><em>Modular</em> by design.</h2>
+          <h2 id="intro-heading">Solid wood.<br /><em>Modular</em> by design.</h2>
         </div>
         <div className="intro-text fade-up">
           <p>
@@ -90,54 +93,54 @@ export default function Home() {
       </section>
 
       {/* SPECS */}
-      <div id="specs">
+      <div id="specs" role="region" aria-label="Product specifications">
         <div className="specs-inner">
           <div className="spec-item fade-up">
-            <div className="spec-value">30″</div>
+            <div className="spec-value" aria-label="30 inches">30″</div>
             <div className="spec-label">Length</div>
           </div>
           <div className="spec-item fade-up">
-            <div className="spec-value">18″</div>
+            <div className="spec-value" aria-label="18 inches">18″</div>
             <div className="spec-label">Width</div>
           </div>
           <div className="spec-item fade-up">
-            <div className="spec-value">14″</div>
+            <div className="spec-value" aria-label="14 inches">14″</div>
             <div className="spec-label">Height</div>
           </div>
           <div className="spec-item fade-up">
-            <div className="spec-value">6–8</div>
+            <div className="spec-value" aria-label="6 to 8">6–8</div>
             <div className="spec-label">Weeks lead time</div>
           </div>
         </div>
       </div>
 
       {/* GALLERY */}
-      <section id="gallery">
+      <section id="gallery" aria-labelledby="gallery-heading">
         <div className="gallery-header fade-up">
           <span className="label">Gallery</span>
-          <h2>The table, in detail.</h2>
+          <h2 id="gallery-heading">The table, in detail.</h2>
         </div>
-        <div className="gallery-grid">
-          <div className="gallery-item g1 fade-up">
-            <img src="/images/table-hero.jpg" alt="Dashidar table with glass top" loading="lazy" />
+        <div className="gallery-grid" role="list">
+          <div className="gallery-item g1 fade-up" role="listitem">
+            <img src="/images/table-hero.jpg" alt="Dashidar table with glass top in a living room setting" loading="lazy" />
           </div>
-          <div className="gallery-item g2 fade-up">
-            <img src="/images/joint-dark.jpg" alt="Interlocking walnut wood joint detail" loading="lazy" />
+          <div className="gallery-item g2 fade-up" role="listitem">
+            <img src="/images/joint-dark.jpg" alt="Close-up of the interlocking walnut wood joint" loading="lazy" />
           </div>
-          <div className="gallery-item g3 fade-up">
-            <img src="/images/joint-light.jpg" alt="White oak joint close-up" loading="lazy" />
+          <div className="gallery-item g3 fade-up" role="listitem">
+            <img src="/images/joint-light.jpg" alt="White oak joint close-up showing precision craftsmanship" loading="lazy" />
           </div>
-          <div className="gallery-item g4 fade-up">
-            <img src="/images/base-top.jpg" alt="Top view of the interlocking base" loading="lazy" />
+          <div className="gallery-item g4 fade-up" role="listitem">
+            <img src="/images/base-top.jpg" alt="Top-down view of the interlocking wood base structure" loading="lazy" />
           </div>
-          <div className="gallery-item g5 fade-up">
-            <img src="/images/bases-stacked.jpg" alt="Multiple table bases assembled" loading="lazy" />
+          <div className="gallery-item g5 fade-up" role="listitem">
+            <img src="/images/bases-stacked.jpg" alt="Multiple table bases stacked and assembled" loading="lazy" />
           </div>
         </div>
       </section>
 
       {/* PULL QUOTE */}
-      <div className="pull-quote pull-quote--dark fade-up">
+      <div className="pull-quote pull-quote--dark fade-up" role="region" aria-label="Customer testimonial">
         <blockquote>
           "Five minutes to assemble — it looks like sculpture. The modular design meant it fit through my narrow Brooklyn doorway with no problem."
         </blockquote>
@@ -145,14 +148,14 @@ export default function Home() {
       </div>
 
       {/* DRAWING / DETAILS */}
-      <section id="drawing">
+      <section id="drawing" aria-labelledby="drawing-heading">
         <div className="drawing-inner">
           <div className="fade-up">
-            <img src="/images/drawing.jpg" alt="Technical exploded drawing of the table assembly" loading="lazy" />
+            <img src="/images/drawing.jpg" alt="Technical exploded-view drawing showing the table assembly and component layout" loading="lazy" />
           </div>
           <div className="drawing-text fade-up">
             <span className="label">Details</span>
-            <h2>Engineered<br />to last.</h2>
+            <h2 id="drawing-heading">Engineered<br />to last.</h2>
             <ul className="feature-list">
               <li>Solid wood construction throughout — no MDF, no veneers</li>
               <li>Modular interlocking base — assembles tool-free in minutes</li>
@@ -166,15 +169,21 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section id="process">
+      <section id="process" aria-labelledby="process-heading">
         <div className="process-media fade-up">
-          <video controls playsInline poster="/images/base-top.jpg">
+          <video
+            controls
+            playsInline
+            poster="/images/base-top.jpg"
+            aria-label="Video showing the table assembly process — four wooden beams interlocking without tools"
+          >
             <source src="/images/assembly.mov" type="video/mp4" />
+            Your browser does not support video playback.
           </video>
         </div>
         <div className="process-text fade-up">
           <span className="label">Process</span>
-          <h2>Made in<br />Brooklyn.</h2>
+          <h2 id="process-heading">Made in<br />Brooklyn.</h2>
           <p>
             Each table starts at the CNC mill in our Brooklyn workshop, where solid wood stock is cut to within a fraction of a millimeter. From there, every component is hand-sanded and finished before final assembly.
           </p>
@@ -185,25 +194,25 @@ export default function Home() {
       </section>
 
       {/* ORDER */}
-      <section id="order">
+      <section id="order" aria-labelledby="order-heading">
         <div className="order-inner">
           <div className="order-details fade-up">
             <span className="label">Reserve Yours</span>
-            <h2>Made <em>for you,</em><br />by hand.</h2>
-            <div className="order-price">$750</div>
+            <h2 id="order-heading">Made <em>for you,</em><br />by hand.</h2>
+            <div className="order-price" aria-label="Price: $750">$750</div>
             <p className="order-tagline">
               Solid wood. Handcrafted in Brooklyn. Yours in 6–8 weeks.
               Dana confirms your details within 2–3 business days.
             </p>
-            <ul className="order-features">
+            <ul className="order-features" aria-label="What's included">
               <li>White oak, walnut, or maple — your choice</li>
               <li>Tool-free interlocking base</li>
               <li>Glass top available on request</li>
               <li>Custom dimensions available</li>
               <li>Each table is one of a kind</li>
             </ul>
-            <div className="order-testimonial">
-              <div className="order-testimonial-stars">★★★★★</div>
+            <div className="order-testimonial" role="blockquote" aria-label="Customer review">
+              <div className="order-testimonial-stars" aria-label="5 stars">★★★★★</div>
               <p className="order-testimonial-text">
                 "Worth every penny. We ordered the walnut finish and it exceeded every expectation. This is heirloom-quality furniture."
               </p>
@@ -214,11 +223,11 @@ export default function Home() {
           <div className="order-checkout fade-up">
             <div className="checkout-box">
               <CheckoutEmbed />
-              <div className="trust-badges">
+              <div className="trust-badges" aria-label="Payment security">
                 <span>🔒 Secure payment</span>
-                <span>·</span>
+                <span aria-hidden="true">·</span>
                 <span>Stripe encrypted</span>
-                <span>·</span>
+                <span aria-hidden="true">·</span>
                 <span>Apple Pay accepted</span>
               </div>
             </div>
@@ -227,47 +236,47 @@ export default function Home() {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews">
+      <section id="reviews" aria-labelledby="reviews-heading">
         <div className="reviews-inner">
           <div className="reviews-header fade-up">
             <span className="label">Reviews</span>
-            <h2>What people are saying.</h2>
+            <h2 id="reviews-heading">What people are saying.</h2>
           </div>
           <div className="reviews-grid">
-            <div className="review-card fade-up">
-              <div className="review-stars">★★★★★</div>
+            <article className="review-card fade-up">
+              <div className="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
               <p className="review-text">"This table completely transformed our living room. The craftsmanship is unlike anything you'll find in a store — you can feel the thought that went into every joint. It arrived beautifully packaged and took under five minutes to assemble."</p>
-              <div className="review-author">
+              <footer className="review-author">
                 <span className="review-name">Sarah M.</span>
                 <span className="review-location">New York, NY</span>
-              </div>
-            </div>
-            <div className="review-card fade-up">
-              <div className="review-stars">★★★★★</div>
+              </footer>
+            </article>
+            <article className="review-card fade-up">
+              <div className="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
               <p className="review-text">"I've been looking for a coffee table that was both a conversation piece and actually functional. Dana's table is exactly that. The white oak is stunning and the modular design means it fit through my narrow Brooklyn doorway no problem."</p>
-              <div className="review-author">
+              <footer className="review-author">
                 <span className="review-name">James L.</span>
                 <span className="review-location">Brooklyn, NY</span>
-              </div>
-            </div>
-            <div className="review-card fade-up">
-              <div className="review-stars">★★★★★</div>
+              </footer>
+            </article>
+            <article className="review-card fade-up">
+              <div className="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
               <p className="review-text">"Worth every penny. We ordered the walnut finish and it exceeded every expectation. Dana communicated throughout the whole process and delivered exactly on time. This is heirloom-quality furniture."</p>
-              <div className="review-author">
+              <footer className="review-author">
                 <span className="review-name">Priya K.</span>
                 <span className="review-location">Manhattan, NY</span>
-              </div>
-            </div>
+              </footer>
+            </article>
           </div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about">
+      <section id="about" aria-labelledby="about-heading">
         <div className="about-inner">
           <div className="fade-up">
             <span className="label">The Maker</span>
-            <h2>Designed by<br /><em>Dana.</em></h2>
+            <h2 id="about-heading">Designed by<br /><em>Dana.</em></h2>
             <span className="about-location">Brooklyn, New York</span>
           </div>
           <div className="about-body fade-up">
@@ -282,6 +291,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="about-link"
+              aria-label="View Dana's full portfolio (opens in new tab)"
             >
               View full portfolio →
             </a>
@@ -290,25 +300,27 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact">
+      <section id="contact" aria-labelledby="contact-heading">
         <div className="contact-inner fade-up">
           <span className="label">Contact</span>
-          <h2>Questions?</h2>
+          <h2 id="contact-heading">Questions?</h2>
           <p>Custom dimensions, wood selection, or wholesale inquiries — Dana reads every message personally.</p>
           <ContactForm />
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer>
-        <span className="footer-logo">Dashidar</span>
+      <footer role="contentinfo">
+        <span className="footer-logo" aria-label="Dashidar">Dashidar</span>
         <span>Handcrafted in Brooklyn, New York</span>
-        <div className="footer-links">
-          <a href="#gallery">Gallery</a>
-          <a href="#about">About</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
-        </div>
+        <nav aria-label="Footer navigation">
+          <div className="footer-links">
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
       </footer>
     </>
   )

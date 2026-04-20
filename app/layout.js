@@ -19,6 +19,9 @@ const inter = Inter({
 export const metadata = {
   title: 'Dashidar — Handcrafted Wood Tables, Brooklyn NY',
   description: 'Dashidar makes custom solid wood tables by hand in Brooklyn, New York. Architectural, modular, made to order.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }) {
